@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+<style>
+
+.main-svg,.svg-container{
+  height: 500px !important;
+  background-color: rgba(0,0,0,0) !important;
+  z-index: 10;
+  margin: 0 auto !important;
+}
+.heart {
+	font-size: 150px;
+	color: red;
+  stroke: maroon;
+	animation: beat .25s infinite alternate;
+	transform-origin: center;
+  stroke-miterlimit: 10;  
+  stroke-width: 20px;
+}
+
+/* Heart beat animation */
+@keyframes beat{
+	to { transform: scale(1.4); }
+}
+.box {
+  width: 80%;
+  height: 300px;
+  border: 1px solid white;
+   margin: 0 auto;
+}
+.small-box{
+
+  height: 50px;
+  width: 100%;
+  background-color: white;
+
+}
+@media only screen and (max-width: 600px) {
+  html,body {
+    overflow-x: hidden;
+  }
+  .svg-container{
+    width: 100% !important;
+  }
+}
+</style>
+<nav class="navbar navbar-light bg-light justify-content-between" style="text-align: right;   padding: .5rem 1rem;">
+  <a href="/logout" class="btn btn--radius-2 " type="submit" style="display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;    color: #fff;
+background-color: #525252;
+border-color: #525252">Log Out</a>
+
+</nav>
+<div class="page-wrapper bg-gra-02 p-t-130 font-poppins">
+    <div class="wrapper wrapper--w680" style="text-align: center;">
+    <h2  style="text-align: center;">Probability:{{result}}</h2>
+  </div>
+  </div>
+
+  {% endblock %}
