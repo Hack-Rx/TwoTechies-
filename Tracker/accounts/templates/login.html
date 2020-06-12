@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_tags %}
+
+{% block page_title %}Login Page{% endblock %}
+
+{% block page_heading %}User Login{% endblock %}
+
+{% block content %}
+ <style>
+ .hide{
+     display: none;
+ }
+ </style>
+<form method="POST" class="hide">
+    {% csrf_token %}
+    {{ login_form | as_bootstrap }}
+  
+</form>
+
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title" style="text-align: center;font-weight: bold;"> Login</h2>
+                <div class="hide" style="color: #721c24;
+                     border-color: #f5c6cb;    
+                     padding: .75rem 1.25rem;
+                     font-weight: bold;
+                     text-align: center;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem" id="error" >
+</div>
+                <form  method="POST">
+                    {% csrf_token %}
+                            <div class="input-group">
+                                <label class="label" style="text-align: center;">Username</label>
+                                <input class="input--style-4" type="text" name="username" required>
+                            </div>
+                            <div class="input-group">
+                                <label class="label" style="text-align: center;">Password</label>
+                                <input class="input--style-4" type="password" name="password" required>
+                            </div>
+                            
+                    
+                    <div class="p-t-15" style="text-align: center;">
+                        <button class="btn btn--radius-2 btn--blue" type="submit">Log In</button>
+                    </div>
+                </form>
+                <br>
+                <p class="label" style="text-align: center;">Don't have an account? <a style="color:#4272d7" href="/register">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+<script>
+if(document.querySelector(".alert-danger")){
+    document.getElementById("error").innerHTML=document.querySelector(".alert-danger").innerHTML;
+    document.getElementById("error").classList.remove("hide")
+    document.querySelector(".alert-danger").classList.add("hide")
+}
+</script>
+
+{% endblock %}
