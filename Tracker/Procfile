@@ -1,0 +1,1 @@
+web: gunicorn ArtefactsCollections.wsgi
