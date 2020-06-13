@@ -14,23 +14,26 @@ def home_form(request):
 def facts(request):
     return render(request, "facts.html")
 
+def stats(request):
+    return render(request, "stats.html")
+
 def home_view(request):
     if request.user.is_authenticated:
         loaded_model = joblib.load("model.pkl")
         
         
         age = int(request.POST['age'])
-        #country = request.POST['country']
-        #sex = int(request.POST['sex'])
+        country = request.POST['country']
+        sex = request.POST['sex']
         diffBreathe = int(request.POST['diffBreathe'])
         #sore = int(request.POST['sore'])
         bodyPain = int(request.POST['bodyPain'])
         runnyNose = int(request.POST['runnyNose'])
-        #nasal = int(request.POST['nasal'])
-        #diarrhea = int(request.POST['diarrhea'])
+        nasal = int(request.POST['nasal'])
+        diarrhea = int(request.POST['diarrhea'])
         #tired = int(request.POST['tired'])
         fever = int(request.POST['fever'])
-        #dry = float(request.POST['dry'])
+        dry = float(request.POST['dry'])
         #contact = request.POST['contact']
         #severe = request.POST['severe']
         """
@@ -61,36 +64,14 @@ def home_view(request):
         print(result)
         context={"result":result}
         df = pd.read_csv('data.csv')
-        if result <0.3:
+        if result <0.5:
             return render(request, "mild.html",context)
 
         elif result >=0.3 and result < 0.7:
-            return render(request, "moderate.html",context)
+            return render(request, "severe.html",context)
 
         else:
             return render(request, "severe.html",context)
-        """
-        age = list(df['age'])
-        age_zero = list(df.query('target==0')['age'])
-        age_one = list(df.query('target==1')['age'])
-        chol_zero = list(df.query('target==1')['chol'])
-        chol_one = list(df.query('target==1')['chol'])
-        chol = list(df['chol'])
-        target = list(df['target'])
-        target1 = target[0:100]
-        chol1 = chol[0:100]
-        return render(request, "home.html", {
-            "age":age,
-            "chol":chol,
-            "target":target,
-            "age_zero":age_zero,
-            "age_one":age_one,
-            "chol_zero":chol_zero,
-            "chol_one":chol_one,
-            "result":result[0],
-            "target1":target1,
-            "chol1":chol1
-        })
-        """
+        
     else:
         return redirect(reverse('login'))
