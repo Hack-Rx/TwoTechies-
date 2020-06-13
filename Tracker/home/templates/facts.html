@@ -90,6 +90,9 @@
             <li class="nav-item">
               <a href="{% url 'home_form'%}" class="nav-link">Self Analysis</a>
             </li>
+            <li class="nav-item">
+              <a href="{% url 'stats'%}" class="nav-link">Statistics</a>
+            </li>
             <li>
               <a href="/logout" class="nav-link " type="submit" >Log Out</a>
             </li>
@@ -192,19 +195,7 @@
             })
           })
         </script>
-        <script>
-          /*for header hiding*/
-          var prevScrollpos = window.pageYOffset;
-          window.onscroll = function() {
-            var currentScrollPos = window.pageYOffset;
-            if (prevScrollpos > currentScrollPos) {
-              document.getElementById("header").style.top = "0";
-            } else {
-              document.getElementById("header").style.top = "-376px";
-            }
-            prevScrollpos = currentScrollPos;
-          }
-        </script>
+        
         
         </div>
       </div>

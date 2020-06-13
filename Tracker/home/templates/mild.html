@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Home</title>
+    <title>Result</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -34,40 +34,14 @@
     
     <link type="text/css" rel="stylesheet" href="{% static 'css/style_navbar.css'%}" />
     <link type="text/css" rel="stylesheet" href="{% static 'css/style_home.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %} ">
     <link
       type="text/css"
       data-typed-js-css="true"
       href="{% static 'css/style_home_2.css'%}"
     />
   </head>
-  <style type="text/css">
-    .typed-cursor .typed-cursor--blink {
-      animation: typedjsBlink 0.7s infinite;
-      -webkit-animation: typedjsBlink 0.7s infinite;
-      animation: typedjsBlink 0.7s infinite;
-    }
-
-    @keyframes typedjsBlink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-    @-webkit-keyframes typedjsBlink {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-    .typed-cursor {
-      opacity: 1;
-    }
-  </style>
+  
   <body>
     <navbar class="navbar navbar-expand-sm navbar-light bg-col">
       <div class="container contains">
@@ -85,13 +59,13 @@
               <a href="{% url 'home'%}" class="nav-link">Home</a>
             </li>
             <li class="nav-item dropdown">
-              <a href="{% url 'facts'%}" type="button" class="nav-link ">Facts</a>
+              <a href="#" type="button" class="nav-link ">Facts</a>
             </li>
             <li class="nav-item">
               <a href="{% url 'home_form'%}" class="nav-link">Self Analysis</a>
             </li>
             <li class="nav-item">
-              <a href="{% url 'stats'%}" class="nav-link">Statistcs</a>
+              <a href="{% url 'stats'%}" class="nav-link">Statistics</a>
             </li>
             <li>
               <a href="/logout" class="nav-link " type="submit" >Log Out</a>
@@ -101,37 +75,49 @@
       </div>
     </navbar>
 
-    <div  style ="border-right: 30px solid #ba2d89; border-left: 30px solid #ba2d89; text-align:center">
-  <img src="{% static 'images/precaution.gif' %}">
-    <div class="layout" style="margin-top: 100px;margin-left: 200px;  margin-right: 200px;">
-      
-        
-        <div class="row">
-          <div class="col-sm-10">
-            <div class="logo">
-              <h1>Medication <span class="typed-words"></span></h1>
-            </div>
-            <form >
-              <div class="input-group">
-                <input
-                  type="search"
-                  class="form-control"
-                  aria-label="Search"
-                  name="search"
-                  placeholder="Are you looking for help?"
-                />
-                <button class="buttonS" type="submit">Search</button>
-              </div>
+    <div class="container">
+        <header class="text-center text-light my-4">
+            <h1 class="mb-4" style="color:#ba2d89;">You are safe</h1>
+            <h1 class="mb-4" style="color:#ba2d89;">Follow the precautionary measures and stay at home</h1>
+            <form class="search">
+              <input class="form-control m-auto" style="background-color:#f5dfed" type="text" name="search" placeholder="search " />
             </form>
-          </div>
-        </div>
-    </div>
+        </header>
+          
+          <ul class="list-group todos mx-auto text-light">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <input type="checkbox">
+                <span>Washing hands every 20 minutes</span>
+              <i class="far fa-trash-alt delete"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <input type="checkbox">
+                <span>workout in the gym</span>
+              <i class="far fa-trash-alt delete"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <input type="checkbox">
+                <span>Maintain Social Distance</span>
+              <i class="far fa-trash-alt delete"></i>
+            </li>
+          </ul>
+      <!--<img src="{% static 'images/Result.gif' %}">-->
+          <form class="add text-center my-4" >
+            <label class="text-light" style="color:#ba2d89;" >Add a new todo...</label>
+            <input class="form-control m-auto" placeholder="add" style="background-color:#f5dfed" type="text" name="add" />
+          </form>
+        
     </div>
 
-    
-    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+        <script src='https://www.vantajs.com/dist/vanta.cells.min.js'></script>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
       function highlightCurrent() {
         const curPage = document.URL;
         const links = document.getElementsByClassName("nav-link");
@@ -148,5 +134,6 @@
       };
     </script>
     <script src="{% static 'js/js_home.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
   </body>
 </html>
