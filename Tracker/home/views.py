@@ -1,6 +1,7 @@
 import pandas as pd
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 import joblib
+from .forms import EntryForm
 
 def home(request):
     if request.user.is_authenticated:
