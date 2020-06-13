@@ -4,7 +4,7 @@ from .models import Users
 class EntryForm(ModelForm):
     class Meta:
         model = Users
-        fields = ('name','contact','address','symptoms' )
+        fields = ('name','contact','address','symptoms' ,)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
