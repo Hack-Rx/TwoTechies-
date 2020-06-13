@@ -1,9 +1,9 @@
 from django.forms import ModelForm
-from .models import User
+from .models import Users
 
 class EntryForm(ModelForm):
     class Meta:
-        model = User
+        model = Users
         fields = ('text', )
 
     def __init__(self, *args, **kwargs):
