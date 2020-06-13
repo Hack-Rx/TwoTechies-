@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_navbar.css'%}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_home.css'%}" />
+    <link
+      type="text/css"
+      data-typed-js-css="true"
+      href="{% static 'css/style_home_2.css'%}"
+    />
+  </head>
+  <style type="text/css">
+    .typed-cursor .typed-cursor--blink {
+      animation: typedjsBlink 0.7s infinite;
+      -webkit-animation: typedjsBlink 0.7s infinite;
+      animation: typedjsBlink 0.7s infinite;
+    }
+
+    @keyframes typedjsBlink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes typedjsBlink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .typed-cursor {
+      opacity: 1;
+    }
+  </style>
+  <body>
+    <navbar class="navbar navbar-expand-sm navbar-light bg-col">
+      <div class="container contains">
+        <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'images/logo.jpeg' %}"/></a>
+        <button
+          class="navbar-toggler ml-auto"
+          data-toggle="collapse"
+          data-target="#ids"
+        >
+          <span class="navbar-toggler-icon my-toggler"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ids">
+          <ul class="navbar-nav ml-auto ul">
+            <li class="nav-item">
+              <a href="{% url 'home'%}" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" type="button" class="nav-link ">Facts</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'home_form'%}" class="nav-link">Self Analysis</a>
+            </li>
+            <li>
+              <a href="/logout" class="nav-link " type="submit" >Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </navbar>
+
+    <div style ="border-right: 30px solid #ba2d89; border-left: 30px solid #ba2d89;">
+    <div class="layout" style ="
+    margin-left: 100px;  margin-right: 100px;">
+   
+        <div id="covid" class="corona">
+            <img src="https://i.ya-webdesign.com/images/virus-transparent-animated-gif.gif" alt="">
+        </div>
+          <div id="covid1" class="covid">
+            <h3 class="descheading" style="color:#ba2d89;" ><strong>CORONAVIRUS (COVID-19)</strong></h3>
+            <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.</p>
+            <p>Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment. Older people, and those with underlying medical problems like cardiovascular disease,
+              diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.</p>
+            <p>The best way to prevent and slow down transmission is be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub
+              frequently and not touching your face. </p>
+            <p>The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed
+              elbow).</p>
+            <p>At this time, there are no specific vaccines or treatments for COVID-19. However, there are many ongoing clinical trials evaluating potential treatments. WHO will continue to provide updated information as soon as clinical findings become
+              available.</p>
+              <img src="{% static 'images/precaution2.gif' %}">
+          </div><br>
+          <div class="covid">
+            <h3 class="descheading" style="color:#ba2d89;" ><strong>PREVENTION</strong></h3>
+            <p>To prevent infection and to slow transmission of COVID-19, do the following:
+            <br /> 1. Wash your hands regularly with soap and water, or clean them with alcohol-based hand rub.
+            <br /> 2. Maintain at least 1 metre distance between you and people coughing or sneezing.
+            <br /> 3. Avoid touching your face.
+            <br /> 4. Cover your mouth and nose when coughing or sneezing.
+            <br /> 5. Stay home if you feel unwell.
+            <br /> 6. Refrain from smoking and other activities that weaken the lungs.<br />
+            7. Practice physical distancing by avoiding unnecessary travel and staying away from large groups of people.</p>
+          <img src="https://i.ibb.co/2cn6TSm/1.gif" alt="">
+        </div><br>
+          <div class="covid">
+            <h3 class="descheading" style="color:#ba2d89;" ><strong>SYMPTOMS</strong></h3>
+            <p>The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients may have aches and pains, nasal congestion, runny nose, sore throat or diarrhea. These symptoms are usually mild and begin gradually. Some people become infected but don’t develop any symptoms and don't feel unwell. Most people (about 80%) recover from the disease without needing special treatment. Around 1 out of every 6 people who gets COVID-19 becomes seriously ill and develops difficulty breathing. Older people, and those with underlying medical problems like high blood pressure, heart problems or diabetes, are more likely to develop serious illness. People with fever, cough and difficulty breathing should seek medical attention.</p>
+          </div>
+          <br>
+    </div>
+    </div>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js'></script>
+        <script src='https://www.vantajs.com/dist/vanta.cells.min.js'></script>
+        <script src="./script.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43322397-2"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+        
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-43322397-2');
+        </script>
+        <script>
+          jQuery($ => {
+            // The speed of the scroll in milliseconds
+            const speed = 1000;
+        
+            $('a[href*="#"]')
+              .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+              .unbind('click.smoothScroll')
+              .bind('click.smoothScroll', event => {
+                const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+                const targetElement = document.getElementById(targetId);
+        
+                if (targetElement) {
+                  event.preventDefault();
+                  $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+                }
+              });
+          });
+        </script>
+        <script type="text/javascript">
+          /*for scrolling to top*/
+          $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+              $('.scrolltop:hidden').stop(true, true).fadeIn();
+            } else {
+              $('.scrolltop').stop(true, true).fadeOut();
+            }
+          });
+          $(function() {
+            $(".scroll").click(function() {
+              $("html,body").animate({
+                scrollTop: $(".all").offset().top
+              }, "1000");
+              return false
+            })
+          })
+        </script>
+        <script>
+          /*for header hiding*/
+          var prevScrollpos = window.pageYOffset;
+          window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+              document.getElementById("header").style.top = "0";
+            } else {
+              document.getElementById("header").style.top = "-376px";
+            }
+            prevScrollpos = currentScrollPos;
+          }
+        </script>
+        
+        </div>
+      </div>
+
+    
+    
+
+    <script type="text/javascript">
+      function highlightCurrent() {
+        const curPage = document.URL;
+        const links = document.getElementsByClassName("nav-link");
+        for (let link of links) {
+          if (link.href == curPage) {
+            link.classList.add("current");
+          }
+        }
+      }
+      document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+          highlightCurrent();
+        }
+      };
+    </script>
+    <script src="{% static 'js/js_home.js' %}"></script>
+  </body>
+</html>

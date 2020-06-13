@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Web Monitoring Tool</title>
+    <title>COVID-19</title>
                    <!-- STATIC CSS -->
-<link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
     <!-- Font special for pages-->
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -15,38 +15,54 @@
     <!-- Vendor CSS-->
     <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
-
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_navbar.css'%}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_home.css'%}" />
     <!-- Main CSS-->
     <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
 
             <!-- JS SECTION -->
+            
+          
+                
+          
    </head>
 <body>
-    <nav class="navbar navbar-light bg-light justify-content-between" style="text-align: right;   padding: .5rem 1rem;">
-        <a href="/logout" class="btn btn--radius-2 " type="submit" style="display: inline-block;
-        font-weight: 400;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        border: 1px solid transparent;
-        padding: .375rem .75rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        border-radius: .25rem;
-        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;    color: #fff;
-    background-color: #525252;
-    border-color: #525252;">Log Out</a>
-
-      </nav>
+   
+    <navbar class="navbar navbar-expand-sm navbar-light bg-col">
+        
+    <div class="container contains">
+          <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'images/logo.jpeg' %}"/></a>
+          <button
+            class="navbar-toggler ml-auto"
+            data-toggle="collapse"
+            data-target="#ids"
+          >
+              <span class="navbar-toggler-icon my-toggler"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="ids">
+            <ul class="navbar-nav ml-auto ul">
+              <li class="nav-item">
+                <a href="{% url 'home'%}" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="{% url 'facts'%}" type="button" class="nav-link ">Facts</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'home_form'%}" class="nav-link">Self Analysis</a>
+              </li>
+              <li>
+                <a href="/logout" class="nav-link " type="submit" >Log Out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </navbar>
+     
 <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
     <div class="wrapper wrapper--w680">
         <div class="card card-4">
             <div class="card-body">
-                <h2 class="title" style="text-align: center;font-weight: bold;"> Heart</h2>
+                <h2 class="title" style="text-align: center;font-weight: bold;"> COVID TRACKER</h2>
                 <form action="/result" method="POST">
                     {% csrf_token %}
                     <div class="row row-space">
@@ -136,6 +152,22 @@
 
     <!-- Main JS-->
     <script src="{% static 'js/global.js' %}"></script>
+    <script type="text/javascript">
+        function highlightCurrent() {
+          const curPage = document.URL;
+          const links = document.getElementsByClassName("nav-link");
+          for (let link of links) {
+            if (link.href == curPage) {
+              link.classList.add("current");
+            }
+          }
+        }
+        document.onreadystatechange = () => {
+          if (document.readyState === "complete") {
+            highlightCurrent();
+          }
+        };
+      </script>
 
 </body>
 </html>

@@ -1,77 +1,149 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
 
-{% block content %}
-<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_navbar.css'%}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style_home.css'%}" />
+    <link
+      type="text/css"
+      data-typed-js-css="true"
+      href="{% static 'css/style_home_2.css'%}"
+    />
+  </head>
+  <style type="text/css">
+    .typed-cursor .typed-cursor--blink {
+      animation: typedjsBlink 0.7s infinite;
+      -webkit-animation: typedjsBlink 0.7s infinite;
+      animation: typedjsBlink 0.7s infinite;
+    }
 
-<style>
+    @keyframes typedjsBlink {
+      50% {
+        opacity: 0;
+      }
+    }
 
-.main-svg,.svg-container{
-  height: 500px !important;
-  background-color: rgba(0,0,0,0) !important;
-  z-index: 10;
-  margin: 0 auto !important;
-}
-.heart {
-	font-size: 150px;
-	color: red;
-  stroke: maroon;
-	animation: beat .25s infinite alternate;
-	transform-origin: center;
-  stroke-miterlimit: 10;  
-  stroke-width: 20px;
-}
+    @-webkit-keyframes typedjsBlink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .typed-cursor {
+      opacity: 1;
+    }
+  </style>
+  <body>
+    <navbar class="navbar navbar-expand-sm navbar-light bg-col">
+      <div class="container contains">
+        <a href="{% url 'home' %}" class="navbar-brand"><img src="{% static 'images/logo.jpeg' %}"/></a>
+        <button
+          class="navbar-toggler ml-auto"
+          data-toggle="collapse"
+          data-target="#ids"
+        >
+          <span class="navbar-toggler-icon my-toggler"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="ids">
+          <ul class="navbar-nav ml-auto ul">
+            <li class="nav-item">
+              <a href="{% url 'home'%}" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="{% url 'facts'%}" type="button" class="nav-link ">Facts</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'home_form'%}" class="nav-link">Self Analysis</a>
+            </li>
+            <li>
+              <a href="/logout" class="nav-link " type="submit" >Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </navbar>
 
-/* Heart beat animation */
-@keyframes beat{
-	to { transform: scale(1.4); }
-}
-.box {
-  width: 80%;
-  height: 300px;
-  border: 1px solid white;
-   margin: 0 auto;
-}
-.small-box{
+    <div  style ="border-right: 30px solid #ba2d89; border-left: 30px solid #ba2d89; text-align:center">
+  <img src="{% static 'images/precaution.gif' %}">
+    <div class="layout" style="margin-top: 100px;margin-left: 200px;  margin-right: 200px;">
+      
+        
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="logo">
+              <h1>Medication <span class="typed-words"></span></h1>
+            </div>
+            <form >
+              <div class="input-group">
+                <input
+                  type="search"
+                  class="form-control"
+                  aria-label="Search"
+                  name="search"
+                  placeholder="Are you looking for help?"
+                />
+                <button class="buttonS" type="submit">Search</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    </div>
 
-  height: 50px;
-  width: 100%;
-  background-color: white;
+    
+    
 
-}
-@media only screen and (max-width: 600px) {
-  html,body {
-    overflow-x: hidden;
-  }
-  .svg-container{
-    width: 100% !important;
-  }
-}
-</style>
-<nav class="navbar navbar-light bg-light justify-content-between" style="text-align: right;   padding: .5rem 1rem;">
-  <a href="/logout" class="btn btn--radius-2 " type="submit" style="display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;    color: #fff;
-background-color: #525252;
-border-color: #525252">Log Out</a>
-
-</nav>
-<div class="page-wrapper bg-gra-02 p-t-130 font-poppins">
-    <div class="wrapper wrapper--w680" style="text-align: center;">
-    <h2  style="text-align: center;">Probability:{{result}}</h2>
-  </div>
-  </div>
-
-  {% endblock %}
+    <script type="text/javascript">
+      function highlightCurrent() {
+        const curPage = document.URL;
+        const links = document.getElementsByClassName("nav-link");
+        for (let link of links) {
+          if (link.href == curPage) {
+            link.classList.add("current");
+          }
+        }
+      }
+      document.onreadystatechange = () => {
+        if (document.readyState === "complete") {
+          highlightCurrent();
+        }
+      };
+    </script>
+    <script src="{% static 'js/js_home.js' %}"></script>
+  </body>
+</html>
